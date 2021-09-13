@@ -26,8 +26,9 @@ public class StudentController {
     	studentService.addStudent(student);
     }
 
-    @RequestMapping("/deleteById")
+    @RequestMapping("/deleteStudentById")
     public void deleteStudentById(int id) {
     	studentService.deleteStudentById(id);
+    	
     }
 }
