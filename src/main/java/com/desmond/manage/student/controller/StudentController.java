@@ -22,12 +22,12 @@ public class StudentController {
     }
 
     @RequestMapping("/addStudent")
-    public void saveUser(Student student) {
+    public void addStudent(Student student) {
     	studentService.addStudent(student);
     }
 
     @RequestMapping("/deleteStudentById")
-    public void deleteUserById(int id) {
+    public void deleteStudentById(int id) {
     	studentService.deleteStudentById(id);
     }
 }
