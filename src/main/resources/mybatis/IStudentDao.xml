@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.desmond.manage.student.dao.IStudentDao">
+      <resultMap id="BaseResultMap"  type="com.desmond.manage.student.model.Student" >
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="fullName" property="fullName"  jdbcType="VARCHAR" />
+        <result column="age" property="age"  jdbcType="INTEGER" />
+        <result column="icNo" property="icNo"  jdbcType="BIGINT" />
+        <result column="mobileNo" property="mobileNo"  jdbcType="INTEGER" />
+        <result column="emailAddress" property="emailAddress"  jdbcType="VARCHAR" />
+        <result column="course" property="course"  jdbcType="VARCHAR" />
+        <result column="createDate" property="createDate"  jdbcType="TIMESTAMP" />
+        <result column="updateDate" property="updateDate"  jdbcType="TIMESTAMP" />
+    </resultMap>
+    
+    <!--Query all-->
+    <select id="getAllStudent" resultMap="BaseResultMap">
+        select * from student
+    </select>
+    
+    <!--Save User-->
+   <insert id="addStudent"  useGeneratedKeys="true" keyProperty="id">
+        insert into student(id,fullName,age,icNo,mobileNo,emailAddress,course,createDate,updateDate)  
+        values(#{id},#{fullName},#{age},#{icNo},#{mobileNo},#{emailAddress},#{course},now(),now())
+    </insert>
+    
+    <!--adopt Id delete user-->
+    <delete id="deleteStudentById">
+       delete from student where id =#{id}
+    </delete>    
+</mapper>

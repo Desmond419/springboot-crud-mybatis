@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Student {
 	private int id;
-	private String fullname;
+	private String fullName;
 	private int age;
 	private long icNo;
 	private int mobileNo;
@@ -19,11 +19,11 @@ public class Student {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getFullname() {
-		return fullname;
+	public String getFullName() {
+		return fullName;
 	}
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 	public int getAge() {
 		return age;
