@@ -16,18 +16,18 @@ public class StudentController {
     private StudentService studentService;
 
     @RequestMapping("/getAllStudent")
-    public List<Student> getAllUser() {
+    public List<Student> getAllStudent() {
         List<Student> list = studentService.getAllStudent();
         return list;
     }
 
     @RequestMapping("/addStudent")
-    public void saveUser(Student student) {
+    public void addStudent(Student student) {
     	studentService.addStudent(student);
     }
 
     @RequestMapping("/deleteById")
-    public void deleteUserById(int id) {
+    public void deleteStudentById(int id) {
     	studentService.deleteStudentById(id);
     }
 }
