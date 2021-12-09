@@ -9,22 +9,22 @@ import com.desmond.manage.student.model.Student;
 import com.desmond.manage.student.service.StudentService;
 
 @RestController
-@RequestMapping("/student")
+@RequestMapping("/api")
 public class StudentController {
 	@Autowired
     private StudentService studentService;
 
-    @GetMapping("/all")
+    @GetMapping("/students")
     public List<Student> getAllStudent() {
         return studentService.getAllStudent();
     }
 
-    @PostMapping("/add")
+    @PostMapping("/student")
     public Student saveStudent(@RequestBody Student student) {
         return studentService.saveOrUpdateStudent(student);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/student/{id}")
     public void deleteStudentById(@PathVariable("id") int id) {
     	studentService.deleteStudentById(id);
     }
