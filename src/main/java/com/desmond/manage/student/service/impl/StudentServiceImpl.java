@@ -16,13 +16,12 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public List<Student> getAllStudent() {
-        List<Student> list = studentDao.getAllStudent();
-        return list;
+        return studentDao.getAllStudent();
     }
 
     @Override
-    public void addStudent(Student student) {
-    	studentDao.addStudent(student);
+    public Student saveOrUpdateStudent(Student student) {
+    	return studentDao.saveOrUpdateStudent(student);
     }
 
     @Override

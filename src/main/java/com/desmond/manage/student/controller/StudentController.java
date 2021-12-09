@@ -3,8 +3,7 @@ package com.desmond.manage.student.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.desmond.manage.student.model.Student;
 import com.desmond.manage.student.service.StudentService;
@@ -15,19 +14,18 @@ public class StudentController {
 	@Autowired
     private StudentService studentService;
 
-    @RequestMapping("/getAllStudent")
+    @GetMapping("/all")
     public List<Student> getAllStudent() {
-        List<Student> list = studentService.getAllStudent();
-        return list;
+        return studentService.getAllStudent();
     }
 
-    @RequestMapping("/addStudent")
-    public void addStudent(Student student) {
-    	studentService.addStudent(student);
+    @GetMapping("/add")
+    public Student saveStudent(@RequestBody Student student) {
+        return studentService.saveOrUpdateStudent(student);
     }
 
-    @RequestMapping("/deleteStudentById")
-    public void deleteStudentById(int id) {
+    @DeleteMapping("/delete/{id}")
+    public void deleteStudentById(@PathVariable("id") int id) {
     	studentService.deleteStudentById(id);
     }
 }

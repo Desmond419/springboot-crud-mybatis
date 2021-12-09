@@ -18,8 +18,8 @@
         select * from student
     </select>
     
-    <!--Save User-->
-   <insert id="addStudent"  useGeneratedKeys="true" keyProperty="id">
+    <!--Save or update user-->
+   <insert id="saveOrUpdateStudent"  useGeneratedKeys="true" keyProperty="id">
         insert into student(id,fullName,age,icNo,mobileNo,emailAddress,course,createDate,updateDate)  
         values(#{id},#{fullName},#{age},#{icNo},#{mobileNo},#{emailAddress},#{course},now(),now())
     </insert>
