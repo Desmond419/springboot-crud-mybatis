@@ -19,7 +19,7 @@ public class StudentController {
         return studentService.getAllStudent();
     }
 
-    @GetMapping("/add")
+    @PostMapping("/add")
     public Student saveStudent(@RequestBody Student student) {
         return studentService.saveOrUpdateStudent(student);
     }
