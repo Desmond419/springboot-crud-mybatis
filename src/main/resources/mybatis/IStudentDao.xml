@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.desmond.manage.student.dao.IStudentDao">
       <resultMap id="BaseResultMap"  type="com.desmond.manage.student.model.Student" >
-        <id column="id" property="id" jdbcType="INTEGER" />
+        <id column="id" property="id" jdbcType="BIGINT" />
         <result column="fullName" property="fullName"  jdbcType="VARCHAR" />
         <result column="age" property="age"  jdbcType="INTEGER" />
         <result column="icNo" property="icNo"  jdbcType="BIGINT" />
@@ -17,12 +17,29 @@
     <select id="getAllStudent" resultMap="BaseResultMap">
         select * from student
     </select>
-    
-    <!--Save or update user-->
-   <insert id="saveOrUpdateStudent"  useGeneratedKeys="true" keyProperty="id">
-        insert into student(id,fullName,age,icNo,mobileNo,emailAddress,course,createDate,updateDate)  
+
+    <select id="findStudentById" parameterType="int" resultMap="BaseResultMap">
+        select * from student where id = #{id}
+    </select>
+
+    <!--Add user-->
+   <insert id="addStudent" useGeneratedKeys="true" keyProperty="id">
+        insert into student(id,fullName,age,icNo,mobileNo,emailAddress,course,createDate,updateDate)
         values(#{id},#{fullName},#{age},#{icNo},#{mobileNo},#{emailAddress},#{course},now(),now())
     </insert>
+
+    <!--Update user-->
+    <update id="updateStudent">
+        update student set
+        fullName = #{fullName},
+        age = #{age},
+        icNo = #{icNo},
+        mobileNo = #{mobileNo},
+        emailAddress = #{emailAddress},
+        course = #{course},
+        updateDate = now()
+        where id = #{id}
+    </update>
     
     <!--adopt Id delete user-->
     <delete id="deleteStudentById">

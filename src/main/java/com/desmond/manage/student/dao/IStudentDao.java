@@ -6,7 +6,9 @@ import com.desmond.manage.student.model.Student;
 
 @Mapper
 public interface IStudentDao {
-	public List<Student> getAllStudent();
-    public Student saveOrUpdateStudent(Student student);
-    public void deleteStudentById(int id);
+	List<Student> getAllStudent();
+	Student findStudentById(int id);
+    void addStudent(Student student);
+    void updateStudent(Student student);
+    void deleteStudentById(int id);
 }

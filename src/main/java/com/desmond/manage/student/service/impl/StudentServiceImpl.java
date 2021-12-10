@@ -20,8 +20,18 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public Student saveOrUpdateStudent(Student student) {
-    	return studentDao.saveOrUpdateStudent(student);
+    public Student findStudentById(int id){
+        return studentDao.findStudentById(id);
+    }
+
+    @Override
+    public void addStudent(Student student) {
+    	studentDao.addStudent(student);
+    }
+
+    @Override
+    public void updateStudent(Student student) {
+        studentDao.updateStudent(student);
     }
 
     @Override
